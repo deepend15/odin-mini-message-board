@@ -2,9 +2,15 @@ import express from "express";
 const app = express();
 import indexRouter from "./routes/indexRouter.js";
 import newMessageRouter from "./routes/newMessageRouter.js";
+import { CustomNotFoundError } from "./errors/CustomNotFoundError.js";
 
 app.use("/new", newMessageRouter);
 app.use("/", indexRouter);
+
+// 404 error
+app.use((req, res, next) => {
+  next(new CustomNotFoundError("Page not found."));
+});
 
 app.use((err, req, res, next) => {
   console.error(err);
