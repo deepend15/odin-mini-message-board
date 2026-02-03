@@ -1,0 +1,36 @@
+.message-div,
+.open-message-div {
+  margin: 25px 0;
+  padding: 15px;
+  border: 1px solid black;
+  width: max-content;
+}
+
+.message-div {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.message-div p:first-child {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.message-div :last-child {
+  margin: 0 0 0 10px;
+}
+
+.message-div button {
+  margin-top: 5px;
+}
+
+.open-message-div {
+  font-size: 18px;
+  display: grid;
+  gap: 15px;
+}
+
+.open-message-div > p {
+ margin: 0;
+}

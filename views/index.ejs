@@ -1,25 +1,22 @@
 <html>
   <head>
+    <link rel="stylesheet" href="/styles.css">
     <title><%= title %></title>
   </head>
   <body>
     <%  messages.forEach((message) => { %>
-      <div>
-        <ul>
-          <li>
-            User:
-            <%= message.user %>
-          </li>
-          <li>
-            Message:
-            <%= message.text %>
-          </li>
-          <li>
-            Date:
-            <%= message.added %>
-          </li>
-        </ul>
+      <div class="message-div">
+        <div>
+          <p>
+            <%= message.user %>: "<%= message.text %>"
+          </p>
+          <p>
+            -<%= message.added %>
+          </p>
+        </div>
+        <a href="message/<%= message.id %>"><button>Open</button></a>
       </div>
     <% }); %>
+    <a href="new">New message</a>
   </body>
 </html>
