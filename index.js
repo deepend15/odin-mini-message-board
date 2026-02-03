@@ -1,8 +1,15 @@
 import express from "express";
-const app = express();
+import path from "node:path";
 import indexRouter from "./routes/indexRouter.js";
 import newMessageRouter from "./routes/newMessageRouter.js";
 import { CustomNotFoundError } from "./errors/CustomNotFoundError.js";
+
+const app = express();
+
+const __dirname = import.meta.dirname;
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 app.use("/new", newMessageRouter);
 app.use("/", indexRouter);
