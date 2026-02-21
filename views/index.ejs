@@ -1,22 +1,26 @@
 <html>
   <head>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" href="data:,">
     <title><%= title %></title>
   </head>
   <body>
-    <%  messages.forEach((message) => { %>
-      <div class="message-div">
-        <div>
-          <p>
-            <%= message.user %>: "<%= message.text %>"
-          </p>
-          <p>
-            -<%= message.added %>
-          </p>
+    <h1><%= title %></h1>
+    <% if (locals.messages) { %>
+      <%  messages.forEach((message) => { %>
+        <div class="message-div">
+          <div>
+            <p>
+              <%= message.username %>: "<%= message.message %>"
+            </p>
+            <p>
+              -<%= message.added %>
+            </p>
+          </div>
+          <a href="message/<%= message.id %>"><button>Open</button></a>
         </div>
-        <a href="message/<%= message.id %>"><button>Open</button></a>
-      </div>
-    <% }); %>
+      <% }); %>
+    <% } %>
     <a href="new">New message</a>
   </body>
 </html>
